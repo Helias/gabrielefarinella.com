@@ -19,6 +19,12 @@ import { Footer } from './components/footer/footer';
 export class App {
   protected readonly documentaryItems: WorkItem[] = [
     {
+      title: 'Point of balance - short doc',
+      provider: 'vimeo',
+      videoId: '762057166',
+      poster: 'images/posters/vm_762057166.jpg',
+    },
+    {
       title: 'Can they save Amsterdam skatepark with a party?',
       provider: 'youtube',
       videoId: 'r0FBfBL3_KA',
@@ -51,6 +57,12 @@ export class App {
   ];
 
   protected readonly musicItems: WorkItem[] = [
+    {
+      title: 'M.arte - Reaching for the Stars ft. Candra',
+      provider: 'vimeo',
+      videoId: '813963930',
+      poster: 'images/posters/vm_813963930.jpg',
+    },
     {
       title: 'TeoAlien - Non pensare a me',
       provider: 'youtube',

@@ -22,7 +22,7 @@ interface LangOption {
       class="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6"
       [attr.aria-label]="'nav.work' | transloco"
     >
-      <a href="#hero" class="text-lg font-semibold tracking-wide focus-visible:outline-2">
+      <a href="#home" class="text-lg font-semibold tracking-wide focus-visible:outline-2">
         {{ 'nav.brand' | transloco }}
       </a>
 

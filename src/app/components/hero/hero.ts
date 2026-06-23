@@ -12,7 +12,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
   imports: [TranslocoPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    id: 'hero',
+    id: 'home',
     class: 'section-anchor relative flex min-h-screen items-center justify-center overflow-hidden',
   },
   template: `

@@ -98,7 +98,8 @@ export class WorkSection {
     const url =
       item.provider === 'youtube'
         ? `https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&playsinline=1`
-        : `https://player.vimeo.com/video/${item.videoId}?h=${item.hash}&autoplay=1`;
+        : `https://player.vimeo.com/video/${item.videoId}?autoplay=1` +
+          (item.hash ? `&h=${item.hash}` : '');
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

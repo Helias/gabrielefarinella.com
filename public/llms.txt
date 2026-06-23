@@ -12,7 +12,7 @@ content creation.
 
 ## Sections
 
-- [Hero](#hero): Introduction with background showreel video.
+- [Home](#home): Introduction with background showreel video.
 - [About](#about): What Gabriele does and how he can help.
 - [Work — Documentary](#documentary): Authentic, character-driven documentary films.
 - [Work — Commercial](#commercial): Corporate and brand films.

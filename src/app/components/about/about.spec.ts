@@ -14,11 +14,12 @@ describe('About', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render a heading and the about paragraphs', () => {
+  it('should render a heading, the about paragraphs and the slider', () => {
     const fixture = TestBed.createComponent(About);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelector('h2')).toBeTruthy();
-    expect(el.querySelectorAll('p').length).toBe(3);
+    expect(el.querySelectorAll('p').length).toBe(2);
+    expect(el.querySelector('app-slider')).toBeTruthy();
   });
 });

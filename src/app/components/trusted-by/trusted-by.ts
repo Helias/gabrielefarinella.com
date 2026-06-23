@@ -24,7 +24,7 @@ interface Logo {
       </h2>
       <p class="mt-3 text-lg text-gray-700">{{ 'trustedBy.subheading' | transloco }}</p>
 
-      <ul class="mt-12 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+      <ul class="mt-12 grid grid-cols-2 items-center justify-items-center gap-x-10 gap-y-12 sm:grid-cols-3 lg:grid-cols-4">
         @for (logo of logos; track logo.src) {
           <li class="flex items-center justify-center">
             <img
@@ -32,7 +32,7 @@ interface Logo {
               [width]="logo.width"
               [height]="logo.height"
               [alt]="logo.alt"
-              class="h-12 w-auto max-w-[150px] object-contain opacity-80 transition hover:opacity-100"
+              class="h-20 w-auto max-w-[220px] object-contain opacity-80 transition hover:opacity-100"
             />
           </li>
         }

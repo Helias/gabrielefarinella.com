@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 
+import { Slider } from '../slider/slider';
+
 @Component({
   selector: 'app-about',
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, Slider],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     id: 'about',
@@ -18,8 +20,17 @@ import { TranslocoPipe } from '@jsverse/transloco';
         {{ 'about.valueProp' | transloco }}
       </p>
       <p class="mt-6 text-lg text-gray-700">{{ 'about.bio' | transloco }}</p>
-      <p class="mt-4 text-lg text-gray-700">{{ 'about.cta' | transloco }}</p>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-4xl">
+      <app-slider [slides]="slides" />
     </div>
   `,
 })
-export class About {}
+export class About {
+  protected readonly slides = [
+    'images/slider/slide-1.jpg',
+    'images/slider/slide-2.jpg',
+    'images/slider/slide-3.jpg',
+  ];
+}
