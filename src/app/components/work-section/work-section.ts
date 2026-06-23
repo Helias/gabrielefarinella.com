@@ -25,6 +25,18 @@ export interface WorkItem {
     '[style.background-color]': "dark() ? 'var(--bg-dark)' : null",
     '[class.text-white]': 'dark()',
   },
+  styles: [
+    `
+      /* Centre a lone last card in the 2-column grid (odd item count). */
+      @media (min-width: 768px) {
+        .center-lone-last {
+          grid-column: span 2 / span 2;
+          width: calc(50% - 1rem);
+          margin-inline: auto;
+        }
+      }
+    `,
+  ],
   template: `
     <div class="mx-auto max-w-6xl">
       <header class="max-w-2xl">
@@ -36,7 +48,10 @@ export interface WorkItem {
 
       <ul class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         @for (item of items(); track item.videoId; let i = $index) {
-          <li class="overflow-hidden rounded-lg bg-black shadow-md ring-1 ring-black/5">
+          <li
+            class="overflow-hidden rounded-lg bg-black shadow-md ring-1 ring-black/5"
+            [class.center-lone-last]="$last && items().length % 2 === 1"
+          >
             <div class="relative aspect-video">
               @if (opened().has(i)) {
                 <iframe
