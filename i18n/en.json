@@ -19,8 +19,15 @@
   "about": {
     "heading": "What I do",
     "valueProp": "I help businesses connect to their customers through engaging stories and powerful images.",
-    "bio": "I am a self-shooting director and D.P. specialized in documentary-style films, corporate and social media content.",
-    "cta": "Please get in touch to learn how I can help you."
+    "bio": "I am a self-shooting director and D.P. specialized in documentary-style films, corporate and social media content."
+  },
+  "slider": {
+    "carousel": "Showreel",
+    "previous": "Previous slide",
+    "next": "Next slide",
+    "goToSlide": "Go to slide",
+    "play": "Start automatic slideshow",
+    "pause": "Pause automatic slideshow"
   },
   "work": {
     "documentary": {

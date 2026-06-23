@@ -19,8 +19,15 @@
   "about": {
     "heading": "Wat ik doe",
     "valueProp": "Ik help bedrijven om in contact te komen met hun klanten via meeslepende verhalen en krachtige beelden.",
-    "bio": "Ik ben een self-shooting regisseur en D.P., gespecialiseerd in documentaire-achtige films, bedrijfs- en socialmediacontent.",
-    "cta": "Neem gerust contact op om te ontdekken hoe ik je kan helpen."
+    "bio": "Ik ben een self-shooting regisseur en D.P., gespecialiseerd in documentaire-achtige films, bedrijfs- en socialmediacontent."
+  },
+  "slider": {
+    "carousel": "Showreel",
+    "previous": "Vorige afbeelding",
+    "next": "Volgende afbeelding",
+    "goToSlide": "Ga naar afbeelding",
+    "play": "Diavoorstelling starten",
+    "pause": "Diavoorstelling pauzeren"
   },
   "work": {
     "documentary": {
