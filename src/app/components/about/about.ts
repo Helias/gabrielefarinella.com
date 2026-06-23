@@ -28,9 +28,8 @@ import { Slider } from '../slider/slider';
   `,
 })
 export class About {
-  protected readonly slides = [
-    'images/slider/slide-1.jpg',
-    'images/slider/slide-2.jpg',
-    'images/slider/slide-3.jpg',
-  ];
+  protected readonly slides = Array.from(
+    { length: 14 },
+    (_, i) => `images/slider/slide-${i + 1}.jpg`,
+  );
 }
