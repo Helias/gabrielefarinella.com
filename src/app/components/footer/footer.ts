@@ -12,11 +12,11 @@ interface Social {
   imports: [TranslocoPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'block px-6 py-10 text-white',
+    class: 'block px-6 py-5 text-white',
     style: 'background-color: var(--bg-dark);',
   },
   template: `
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/15 pt-8 sm:flex-row">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 sm:flex-row">
       <div class="text-center text-sm text-white/80 sm:text-left">
         <p>
           {{ 'footer.copyright' | transloco }}
@@ -41,7 +41,7 @@ interface Social {
               [href]="social.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex h-10 w-10 items-center justify-center rounded-full text-white transition hover:bg-white/10 focus-visible:outline-2"
+              class="flex h-9 w-9 items-center justify-center rounded-full text-white transition hover:bg-white/10 focus-visible:outline-2"
               [attr.aria-label]="'footer.followLabel' | transloco: { platform: social.label }"
             >
               @switch (social.key) {

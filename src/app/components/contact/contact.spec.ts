@@ -21,4 +21,12 @@ describe('Contact', () => {
     expect(iframe).toBeTruthy();
     expect(iframe.getAttribute('title')).toBeTruthy();
   });
+
+  it('should render Gabriele\'s portrait with alt text', () => {
+    const fixture = TestBed.createComponent(Contact);
+    fixture.detectChanges();
+    const img = fixture.nativeElement.querySelector('img') as HTMLImageElement;
+    expect(img).toBeTruthy();
+    expect(img.getAttribute('alt')).toBeTruthy();
+  });
 });

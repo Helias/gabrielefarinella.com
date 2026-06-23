@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslocoPipe } from '@jsverse/transloco';
 
@@ -11,22 +12,33 @@ const CONTACT_FORM_URL =
 
 @Component({
   selector: 'app-contact',
-  imports: [TranslocoPipe],
+  imports: [NgOptimizedImage, TranslocoPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     id: 'contact',
-    class: 'section-anchor block px-6 py-20 text-white sm:py-28',
-    style: 'background-color: var(--bg-dark);',
+    class: 'section-anchor block bg-white px-6 py-20 text-gray-900 sm:py-28',
   },
   template: `
     <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
       <div>
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ 'contact.heading' | transloco }}</h2>
-        <p class="mt-6 text-2xl font-medium">{{ 'contact.intro' | transloco }}</p>
-        <p class="mt-4 text-lg text-white/90">{{ 'contact.body' | transloco }}</p>
+        <p class="text-sm font-semibold uppercase tracking-widest text-[rgba(70,82,87,1)]">
+          {{ 'contact.heading' | transloco }}
+        </p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{{ 'contact.intro' | transloco }}</h2>
+        <p class="mt-4 text-lg text-gray-700">{{ 'contact.body1' | transloco }}</p>
+        <p class="mt-3 text-lg text-gray-700">{{ 'contact.body2' | transloco }}</p>
+        <p class="mt-3 text-lg text-gray-700">{{ 'contact.body3' | transloco }}</p>
+        <p class="mt-3 text-lg text-gray-700">{{ 'contact.body4' | transloco }}</p>
+        <img
+          [ngSrc]="'images/gabriele.jpg'"
+          width="1280"
+          height="858"
+          [alt]="'hero.name' | transloco"
+          class="mt-8 w-full max-w-md rounded-lg object-cover shadow-lg"
+        />
       </div>
 
-      <div class="rounded-lg bg-white p-2 shadow-lg">
+      <div class="rounded-lg bg-white p-2 shadow-lg ring-1 ring-black/10">
         <iframe
           [src]="formUrl"
           [title]="'contact.formTitle' | transloco"

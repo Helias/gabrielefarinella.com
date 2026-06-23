@@ -4,7 +4,7 @@
     "documentary": "Documentary",
     "commercial": "Commercial",
     "music": "Music",
-    "trustedBy": "Trusted by",
+    "trustedBy": "Clients",
     "contact": "Contact",
     "skipToContent": "Skip to main content",
     "languageLabel": "Switch language",
@@ -39,13 +39,16 @@
     "playLabel": "Play video: {{title}}"
   },
   "trustedBy": {
-    "heading": "Trusted by",
+    "heading": "Clients",
     "subheading": "Brands and organisations I have worked with."
   },
   "contact": {
     "heading": "Contact",
     "intro": "I am Gabriele,",
-    "body": "a filmmaker with over a decade of experience, specialized in narrative storytelling. I am based in Amsterdam. Feel free to contact me if you have a project you want to discuss.",
+    "body1": "I am a filmmaker with over 10 years of experience. I am passionate about telling engaging stories that make us connect with other human beings.",
+    "body2": "I am currently based in Amsterdam.",
+    "body3": "Feel free to contact me if you have a project you want to discuss.",
+    "body4": "You can book a call or use the contact form below.",
     "formTitle": "Contact form",
     "formFallback": "Having trouble with the form? Email me directly.",
     "bookCall": "Book a call"

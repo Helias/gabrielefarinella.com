@@ -4,7 +4,7 @@
     "documentary": "Documentaire",
     "commercial": "Commercieel",
     "music": "Muziek",
-    "trustedBy": "Vertrouwd door",
+    "trustedBy": "Klanten",
     "contact": "Contact",
     "skipToContent": "Naar de hoofdinhoud",
     "languageLabel": "Taal wisselen",
@@ -45,7 +45,10 @@
   "contact": {
     "heading": "Contact",
     "intro": "Ik ben Gabriele,",
-    "body": "een filmmaker met meer dan tien jaar ervaring, gespecialiseerd in narratief vertellen. Ik ben gevestigd in Amsterdam. Neem gerust contact op als je een project wilt bespreken.",
+    "body1": "Ik ben filmmaker met meer dan 10 jaar ervaring. Ik vertel graag meeslepende verhalen die ons met andere mensen verbinden.",
+    "body2": "Ik ben momenteel gevestigd in Amsterdam.",
+    "body3": "Neem gerust contact op als je een project wilt bespreken.",
+    "body4": "Je kunt een gesprek plannen of het contactformulier hieronder gebruiken.",
     "formTitle": "Contactformulier",
     "formFallback": "Lukt het formulier niet? Mail me dan rechtstreeks.",
     "bookCall": "Plan een gesprek"
