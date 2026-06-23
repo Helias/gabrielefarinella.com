@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  viewChild,
+} from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
@@ -11,6 +17,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
   },
   template: `
     <video
+      #heroVideo
       class="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
       autoplay
       muted
@@ -18,9 +25,9 @@ import { TranslocoPipe } from '@jsverse/transloco';
       playsinline
       aria-hidden="true"
       tabindex="-1"
-      poster="/images/hero-poster.svg"
+      poster="images/hero-poster.svg"
     >
-      <source src="/videos/hero.mp4" type="video/mp4" />
+      <source src="videos/hero.mp4" type="video/mp4" />
     </video>
 
     <!-- Dark overlay keeps white heading text above WCAG AA contrast over the video. -->
@@ -41,4 +48,19 @@ import { TranslocoPipe } from '@jsverse/transloco';
     </div>
   `,
 })
-export class Hero {}
+export class Hero {
+  private readonly video = viewChild<ElementRef<HTMLVideoElement>>('heroVideo');
+
+  constructor() {
+    // Angular's template `muted` attribute does not set the DOM `muted` property, so
+    // browsers block autoplay. Force the property on, then start playback.
+    afterNextRender(() => {
+      const el = this.video()?.nativeElement;
+      if (!el) return;
+      el.muted = true;
+      el.play().catch(() => {
+        /* autoplay may still be refused (e.g. reduced-motion); the poster stays visible */
+      });
+    });
+  }
+}

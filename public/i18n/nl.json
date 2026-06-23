@@ -35,8 +35,8 @@
       "title": "Muziek",
       "description": "Videoclips en visueel werk opgebouwd rond ritme, sfeer en beweging."
     },
-    "watchOn": "Bekijk op Vimeo",
-    "comingSoon": "Showreel binnenkort beschikbaar"
+    "play": "Video afspelen",
+    "playLabel": "Video afspelen: {{title}}"
   },
   "trustedBy": {
     "heading": "Vertrouwd door",
@@ -52,6 +52,7 @@
   },
   "footer": {
     "copyright": "Copyright © 2024, Gabriele Farinella",
+    "poweredBy": "mogelijk gemaakt door",
     "kvk": "KVK 94761639",
     "vimeo": "Vimeo",
     "linkedin": "LinkedIn",

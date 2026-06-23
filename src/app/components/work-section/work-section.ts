@@ -1,19 +1,22 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 export interface WorkItem {
-  /** Poster image shown for the card. */
+  /** Video title, used as caption, image alt and iframe title. Not translated (proper title). */
+  title: string;
+  provider: 'youtube' | 'vimeo';
+  videoId: string;
+  /** Vimeo privacy hash (`h` param); required for unlisted Vimeo videos. */
+  hash?: string;
+  /** Local poster image path shown before the video is loaded. */
   poster: string;
-  /** Optional Vimeo video id; when set the card links out to the video. */
-  vimeoId?: string;
-  /** Translation key for the card caption. */
-  captionKey: string;
 }
 
 @Component({
   selector: 'app-work-section',
-  imports: [NgOptimizedImage, NgTemplateOutlet, TranslocoPipe],
+  imports: [NgOptimizedImage, TranslocoPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'section-anchor block px-6 py-20 sm:py-28',
@@ -31,55 +34,71 @@ export interface WorkItem {
         </p>
       </header>
 
-      <ul class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        @for (item of items(); track $index) {
-          <li class="group overflow-hidden rounded-lg shadow-md ring-1 ring-black/5">
-            @if (item.vimeoId) {
-              <a
-                [href]="'https://vimeo.com/' + item.vimeoId"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block focus-visible:outline-2"
-              >
-                <ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{ $implicit: item }" />
-                <span class="sr-only">{{ 'work.watchOn' | transloco }}</span>
-              </a>
-            } @else {
-              <ng-container [ngTemplateOutlet]="card" [ngTemplateOutletContext]="{ $implicit: item }" />
-            }
+      <ul class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+        @for (item of items(); track item.videoId; let i = $index) {
+          <li class="overflow-hidden rounded-lg bg-black shadow-md ring-1 ring-black/5">
+            <div class="relative aspect-video">
+              @if (opened().has(i)) {
+                <iframe
+                  class="absolute inset-0 h-full w-full"
+                  [src]="embedUrl(item)"
+                  [title]="item.title"
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              } @else {
+                <button
+                  type="button"
+                  class="group absolute inset-0 h-full w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  [attr.aria-label]="'work.playLabel' | transloco: { title: item.title }"
+                  (click)="open(i)"
+                >
+                  <img
+                    [ngSrc]="item.poster"
+                    width="640"
+                    height="360"
+                    [alt]="item.title"
+                    class="h-full w-full object-cover"
+                  />
+                  <span class="absolute inset-0 bg-black/25 transition group-hover:bg-black/10"></span>
+                  <span
+                    class="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg transition group-hover:scale-110"
+                  >
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" fill="rgba(70,82,87,1)" />
+                    </svg>
+                  </span>
+                </button>
+              }
+            </div>
+            <p class="bg-white px-4 py-3 text-sm font-medium text-gray-900">{{ item.title }}</p>
           </li>
         }
       </ul>
     </div>
-
-    <ng-template #card let-item>
-      <figure class="relative bg-black/10">
-        <img
-          [ngSrc]="item.poster"
-          width="640"
-          height="360"
-          [alt]="item.captionKey | transloco"
-          class="aspect-video w-full object-cover transition group-hover:scale-[1.02]"
-        />
-        <figcaption
-          class="flex items-center justify-between gap-2 px-4 py-3 text-sm font-medium"
-          [class.bg-white]="!dark()"
-        >
-          <span>{{ item.captionKey | transloco }}</span>
-          <span class="text-xs uppercase tracking-wide opacity-70">
-            {{ (item.vimeoId ? 'work.watchOn' : 'work.comingSoon') | transloco }}
-          </span>
-        </figcaption>
-      </figure>
-    </ng-template>
   `,
 })
 export class WorkSection {
+  private readonly sanitizer = inject(DomSanitizer);
+
   readonly sectionId = input.required<string>();
   readonly titleKey = input.required<string>();
   readonly descKey = input.required<string>();
   readonly dark = input<boolean>(false);
   readonly items = input<WorkItem[]>([]);
 
-  protected readonly hasItems = computed(() => this.items().length > 0);
+  protected readonly opened = signal<ReadonlySet<number>>(new Set());
+
+  protected open(index: number): void {
+    this.opened.update((set) => new Set(set).add(index));
+  }
+
+  protected embedUrl(item: WorkItem): SafeResourceUrl {
+    const url =
+      item.provider === 'youtube'
+        ? `https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&playsinline=1`
+        : `https://player.vimeo.com/video/${item.videoId}?h=${item.hash}&autoplay=1`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }

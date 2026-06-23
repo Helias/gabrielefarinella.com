@@ -35,8 +35,8 @@
       "title": "Music",
       "description": "Music videos and visual pieces built around rhythm, mood and movement."
     },
-    "watchOn": "Watch on Vimeo",
-    "comingSoon": "Showreel coming soon"
+    "play": "Play video",
+    "playLabel": "Play video: {{title}}"
   },
   "trustedBy": {
     "heading": "Trusted by",
@@ -52,6 +52,7 @@
   },
   "footer": {
     "copyright": "Copyright © 2024, Gabriele Farinella",
+    "poweredBy": "powered by",
     "kvk": "KVK 94761639",
     "vimeo": "Vimeo",
     "linkedin": "LinkedIn",

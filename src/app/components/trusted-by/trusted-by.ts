@@ -21,7 +21,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
         @for (logo of logos; track logo) {
           <li class="flex items-center justify-center">
             <img
-              [ngSrc]="'/images/logo-placeholder.svg'"
+              [ngSrc]="'images/logo-placeholder.svg'"
               width="160"
               height="64"
               [alt]="logo"

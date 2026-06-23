@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Placeholder">
-  <rect width="640" height="360" fill="rgba(70,82,87,1)"/>
-  <g fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3">
-    <circle cx="320" cy="180" r="46"/>
-    <path d="M306 158 L350 180 L306 202 Z" fill="#ffffff" fill-opacity="0.6" stroke="none"/>
-  </g>
-</svg>
