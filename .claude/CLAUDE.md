@@ -16,6 +16,13 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Do NOT use the `@HostBinding` and `@HostListener` decorators. Put host bindings inside the `host` object of the `@Component` or `@Directive` decorator instead
 - Use `NgOptimizedImage` for all static images.
   - `NgOptimizedImage` does not work for inline base64 images.
+- Do NOT import an Angular `*Module` into a component's `imports`. Import the single
+  standalone component/directive/pipe you actually need. Example: instead of `TranslocoModule`,
+  import the `TranslocoPipe` or `TranslocoDirective` depending on what the template uses.
+- Prefer signals over RxJS. Only reach for RxJS when signals cannot express the need.
+- Use native control flow (`@if`, `@for`, `@switch`), never `*ngIf`/`*ngFor`/`*ngSwitch`.
+- Keep components small. If a component exceeds ~350 lines, split it into smaller components.
+- Always write a component unit test (`*.spec.ts`) right after implementing a component.
 
 ## Accessibility Requirements
 

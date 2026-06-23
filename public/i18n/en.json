@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "work": "Work",
+    "documentary": "Documentary",
+    "commercial": "Commercial",
+    "music": "Music",
+    "trustedBy": "Trusted by",
+    "contact": "Contact",
+    "skipToContent": "Skip to main content",
+    "languageLabel": "Switch language",
+    "brand": "Gabriele Farinella"
+  },
+  "hero": {
+    "name": "Gabriele Farinella",
+    "role": "Commercial filmmaker and content creator",
+    "tagline": "Documentary · Corporate · Content creation",
+    "cta": "Get in touch"
+  },
+  "about": {
+    "heading": "What I do",
+    "valueProp": "I help businesses connect to their customers through engaging stories and powerful images.",
+    "bio": "I am a self-shooting director and D.P. specialized in documentary-style films, corporate and social media content.",
+    "cta": "Please get in touch to learn how I can help you."
+  },
+  "work": {
+    "documentary": {
+      "title": "Documentary",
+      "description": "Authentic, character-driven films that capture real people and real moments."
+    },
+    "commercial": {
+      "title": "Commercial",
+      "description": "Corporate and brand films that turn your message into a story customers remember."
+    },
+    "music": {
+      "title": "Music",
+      "description": "Music videos and visual pieces built around rhythm, mood and movement."
+    },
+    "watchOn": "Watch on Vimeo",
+    "comingSoon": "Showreel coming soon"
+  },
+  "trustedBy": {
+    "heading": "Trusted by",
+    "subheading": "Brands and organisations I have worked with."
+  },
+  "contact": {
+    "heading": "Contact",
+    "intro": "I am Gabriele,",
+    "body": "a filmmaker with over a decade of experience, specialized in narrative storytelling. I am based in Amsterdam. Feel free to contact me if you have a project you want to discuss.",
+    "formTitle": "Contact form",
+    "formFallback": "Having trouble with the form? Email me directly.",
+    "bookCall": "Book a call"
+  },
+  "footer": {
+    "copyright": "Copyright © 2024, Gabriele Farinella",
+    "kvk": "KVK 94761639",
+    "vimeo": "Vimeo",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "followLabel": "Follow Gabriele on {{platform}}"
+  }
+}

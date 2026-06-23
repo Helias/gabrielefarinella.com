@@ -1,0 +1,32 @@
+# Gabriele Farinella
+
+> Portfolio of Gabriele Farinella, a commercial filmmaker, self-shooting director and
+> D.P. based in Amsterdam, specialized in documentary-style films, corporate and social
+> media content. Single-page site, available in English and Dutch.
+
+## About
+
+Gabriele helps businesses connect to their customers through engaging stories and powerful
+images. Over a decade of experience in narrative storytelling, documentary, corporate and
+content creation.
+
+## Sections
+
+- [Hero](#hero): Introduction with background showreel video.
+- [About](#about): What Gabriele does and how he can help.
+- [Work — Documentary](#documentary): Authentic, character-driven documentary films.
+- [Work — Commercial](#commercial): Corporate and brand films.
+- [Work — Music](#music): Music videos and visual pieces.
+- [Trusted by](#trusted-by): Brands and organisations Gabriele has worked with.
+- [Contact](#contact): Get in touch via the contact form. Based in Amsterdam. KVK 94761639.
+
+## Languages
+
+- English (default)
+- Dutch (Nederlands)
+
+## Social
+
+- Vimeo
+- LinkedIn
+- Instagram
