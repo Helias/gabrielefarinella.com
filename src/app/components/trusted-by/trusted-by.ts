@@ -2,6 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslocoPipe } from '@jsverse/transloco';
 
+interface Logo {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 @Component({
   selector: 'app-trusted-by',
   imports: [NgOptimizedImage, TranslocoPipe],
@@ -17,15 +24,15 @@ import { TranslocoPipe } from '@jsverse/transloco';
       </h2>
       <p class="mt-3 text-lg text-gray-700">{{ 'trustedBy.subheading' | transloco }}</p>
 
-      <ul class="mt-12 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 lg:grid-cols-5">
-        @for (logo of logos; track logo) {
+      <ul class="mt-12 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+        @for (logo of logos; track logo.src) {
           <li class="flex items-center justify-center">
             <img
-              [ngSrc]="'images/logo-placeholder.svg'"
-              width="160"
-              height="64"
-              [alt]="logo"
-              class="h-12 w-auto opacity-60 grayscale transition hover:opacity-100"
+              [ngSrc]="logo.src"
+              [width]="logo.width"
+              [height]="logo.height"
+              [alt]="logo.alt"
+              class="h-12 w-auto max-w-[150px] object-contain opacity-80 transition hover:opacity-100"
             />
           </li>
         }
@@ -34,5 +41,14 @@ import { TranslocoPipe } from '@jsverse/transloco';
   `,
 })
 export class TrustedBy {
-  protected readonly logos = ['Brand 1', 'Brand 2', 'Brand 3', 'Brand 4', 'Brand 5'];
+  protected readonly logos: Logo[] = [
+    { src: 'images/logos/logo-1.png', alt: 'ODO7', width: 2568, height: 496 },
+    { src: 'images/logos/logo-2.png', alt: 'KIEM', width: 1066, height: 319 },
+    { src: 'images/logos/logo-3.webp', alt: 'Jaguar House', width: 400, height: 400 },
+    { src: 'images/logos/noiselab.png', alt: 'NOISE LAb', width: 1024, height: 640 },
+    { src: 'images/logos/x3-padel.png', alt: 'X3 Padel', width: 647, height: 386 },
+    { src: 'images/logos/chiaria.png', alt: 'Chiaria', width: 800, height: 829 },
+    { src: 'images/logos/albero.jpg', alt: "L'albero Filosofico", width: 170, height: 188 },
+    { src: 'images/logos/logo-8.png', alt: 'G.P. Auto', width: 1167, height: 137 },
+  ];
 }

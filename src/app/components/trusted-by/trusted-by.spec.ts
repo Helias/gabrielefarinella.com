@@ -14,11 +14,11 @@ describe('TrustedBy', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render a logo per brand with alt text', () => {
+  it('should render a logo per client with non-empty alt text', () => {
     const fixture = TestBed.createComponent(TrustedBy);
     fixture.detectChanges();
     const images = fixture.nativeElement.querySelectorAll('img');
-    expect(images.length).toBe(5);
+    expect(images.length).toBe(8);
     images.forEach((img: HTMLImageElement) => expect(img.getAttribute('alt')).toBeTruthy());
   });
 });

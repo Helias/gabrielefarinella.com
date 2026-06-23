@@ -28,7 +28,6 @@ const CONTACT_FORM_URL =
         <p class="mt-4 text-lg text-gray-700">{{ 'contact.body1' | transloco }}</p>
         <p class="mt-3 text-lg text-gray-700">{{ 'contact.body2' | transloco }}</p>
         <p class="mt-3 text-lg text-gray-700">{{ 'contact.body3' | transloco }}</p>
-        <p class="mt-3 text-lg text-gray-700">{{ 'contact.body4' | transloco }}</p>
         <img
           [ngSrc]="'images/gabriele.jpg'"
           width="1280"
